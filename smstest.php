@@ -13,7 +13,7 @@ $token = getenv("TWILIO_AUTH_TOKEN");
 $twilio = new Client("AC3b065e01f55d3f1af57e38a9fe91eef5", "a462f869f9921faad721e866c2a74b54");
 
 $message = $twilio->messages
-                  ->create("+213777459649", // to
+                  ->create("+213", // to
                            ["body" => "Hi there", "from" => "+12543293346"]
                   );
 
