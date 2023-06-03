@@ -1,6 +1,9 @@
 <?php
 include 'config.php';
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+$message=NULL;
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
@@ -17,20 +20,24 @@ if (isset($_POST['submit'])) {
         $hashedPassword = $row['password'];
 
         // Verify the entered password using password_verify
+
         if (password_verify($password, $hashedPassword)) {
+
             $_SESSION['username'] = $row['full_name'];
             $_SESSION['pp'] = $row['pp'];
             $_SESSION['userid'] = $row['id'];
-            header('Location: content5.php');
+            $_SESSION['type']="user";
+            $_SESSION['role']="user";
+            header('Location: content7 copy.php');
             // After verifying the login credentials
 $_SESSION['logged_in'] = true;
 // Redirect to the desired page
             exit;
         } else {
-            $message[] = '<div class="alert alert-danger" role="alert">Email or password incorrect!</div>';
+            $message = '<div class="alert alert-danger" role="alert">Email or password incorrect!</div>';
         }
     } else {
-        $message[] = '<div class="alert alert-danger" role="alert">Email or password incorrect!</div>';
+        $message= '<div class="alert alert-danger" role="alert">Email or password incorrect!</div>';
     }
 }
 ?>

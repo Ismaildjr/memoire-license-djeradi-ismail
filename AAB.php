@@ -27,8 +27,15 @@ require 'userlogin1.php';
 
   background: linear-gradient(178.6deg, rgb(232, 245, 253) 3.3%, rgb(252, 253, 255) 109.6%);     }
     </style>
+    <style>
+  .form-container {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+</style>
     <div class="container">
+
         <form method="POST" enctype="multipart/form-data">
+
         <div class="form-group">
     <h2>Connexion</h2>
 
@@ -47,6 +54,7 @@ require 'userlogin1.php';
         unset($_SESSION['verify_status']);
     }
     ?>
+   <?php echo $message; ?>
     
     <label for="email">Adresse e-mail</label>
     <input type="email" id="email" name="email" class="form-control" placeholder="Entrez votre adresse e-mail" required>

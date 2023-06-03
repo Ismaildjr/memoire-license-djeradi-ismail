@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Popup Image Example</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-</head>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-
 <?php
    include 'config.php';
   
@@ -36,6 +25,21 @@ if ($queryResults >0){  while ($row = mysqli_fetch_assoc($result)){
     ;}}}}
    
    ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile de <?php echo $fullName;?></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+</head>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+<body>
+  
+
 <div class="bg-white md:mx-auto rounded shadow-xl w-full md:w-1/2 overflow-hidden">
   <div class="h-[140px] bg-gradient-to-r from-cyan-500 to-blue-500"></div>
   <div class="px-5 py-2 flex flex-col gap-3 pb-6">
@@ -60,67 +64,17 @@ if ($queryResults >0){  while ($row = mysqli_fetch_assoc($result)){
     <p class="text-sm text-stone-500"><?php echo $expp;echo"ans";?></p>
   </div>
 </div>
-  <style>
-    .popup {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: 90%;
-      max-height: 90%;
-      background: #fff;
-      border-radius: 5px;
-      overflow: auto;
-    }
-    .popup img {
-      display: block;
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      margin: 0 auto;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-    }
-
-    /* Mobile Styles */
-    @media only screen and (max-width: 600px) {
-      .popup img {
-        max-width: 90%;
-        max-height: 90%;
-      }
-    }
-  </style>
-  <div id="popup" class="popup">
-    <span class="close-btn" onclick="hidePopup();">&times;</span>
-    <img id="popup-image" src="" alt="Popup Image">
-  </div>
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-  <script>
-  function showPopup(imageUrl) {
-      var popup = document.getElementById('popup');
-      var popupImage = document.getElementById('popup-image');
-      popupImage.src = imageUrl;
-      popup.style.display = 'block';
-    }
-    function hidePopup() {
-      var popup = document.getElementById('popup');
-      popup.style.display = 'none';
-    }
-
-  </script>
+  
       </div>
     </div>
   </div>
 </div>
 </div>
 </div>
+</body>
+
 </html>

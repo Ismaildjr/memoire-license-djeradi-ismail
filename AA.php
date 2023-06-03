@@ -17,6 +17,23 @@ require 'userreg1.php';
 
 </head>
 <body>
+<style>
+        body {
+  background:  blur(10px);
+
+  background: linear-gradient(178.6deg, rgb(232, 245, 253) 3.3%, rgb(252, 253, 255) 109.6%);     }
+    </style>
+    <style>
+   
+        
+  .container {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+  }
+
+</style>
     <div class="container">
         <h2>Inscription</h2>
         <form method="post" enctype="multipart/form-data">
@@ -41,7 +58,7 @@ require 'userreg1.php';
                 <input type="file" id="image" name="image" class="form-control" >
             </div>
             <div class="form-group">
-                <label for="dropdown1">Liste déroulante 1</label>
+                <label for="dropdown1">Wilaya</label>
                 <select name="wilayas" id="wilayas" required>
                     <option selected disabled>Wilayas</option>
                     <?php
@@ -55,7 +72,7 @@ require 'userreg1.php';
                     </select>
                 </div>
                 <div class="form-group">
-                <label for="dropdown2">Liste déroulante 2</label>
+                <label for="dropdown2">Region</label>
                 <select name="communes" id="communes" required></select>
 
 <script>

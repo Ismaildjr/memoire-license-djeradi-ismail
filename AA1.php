@@ -19,6 +19,19 @@ $_SESSION['s1']=false;
 
 </head>
 <body>
+<style>
+  body  {
+  background: linear-gradient(178.6deg, rgba(255, 229, 119, 0.1) 3.3%, rgba(253, 191, 88, 0.4) 109.6%);
+}
+  
+  .container {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+  }
+</style>
+
     <div class="container">
         <h2>Inscription</h2>
         <form method="post" enctype="multipart/form-data">
@@ -72,7 +85,7 @@ if (        $_SESSION['s1']
                 <input type="file" id="image" name="image" class="form-control" >
             </div>
             <div class="form-group">
-                <label for="dropdown1">Liste déroulante 1</label>
+                <label for="dropdown1">Wilaya</label>
                 <select name="wilayas" id="wilayas" required>
                     <option selected disabled>Wilayas</option>
                     <?php
@@ -86,7 +99,7 @@ if (        $_SESSION['s1']
                     </select>
                 </div>
                 <div class="form-group">
-                <label for="dropdown2">Liste déroulante 2</label>
+                <label for="dropdown2">Region</label>
                 <select name="communes" id="communes" required></select>
 
 <script>
@@ -190,4 +203,5 @@ $('#communes').html(result);
   }
    </style>
                 </body>
+                
                 </html>

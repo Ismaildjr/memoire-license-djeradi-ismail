@@ -21,7 +21,9 @@ exit;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="content7.css">
 
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xS30JIcQ0cyHFrVwY9IKMoM1Ug3bJkzzJXojPPlxBG3ovk3YnBN12RGWw3C9iW2H" crossorigin="anonymous"></script>
@@ -35,55 +37,61 @@ exit;
 </head>
 
 <body>
-  <nav class="navbar">
-  <div class="logo">
-  <span class="mano">Mano</span><span class="pro">Pro</span>
-</div>
-<style>.logo {
-  font-family: Arial, sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  color: #007bff; /* Blue color */
-}
+<style>
+    .logo {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: #007bff; /* Blue color */
+      margin-left: 5%;
+    }
 
-.mano {
-  color: #007bff; /* Blue color */
-}
+    .mano {
+      color: #000; /* Black color */
+    }
 
-.pro {
-  color: #000; /* Black color */
-}
-</style>
-   
-    <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-        <?php
-if (isset($_SESSION['logged_in1'])) {
-    echo '<li class="nav-item"><a class="nav-link" href="profile for edit employer.php">Profile</a></li>';
-    echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
-}
-if (isset($_SESSION['logged_in'])) {
-  echo '<li class="nav-item"><a class="nav-link" href="user update info.php">Profile</a></li>';
-  echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
-}
-else{
-  echo '<li class="nav-item"><a class="nav-link" href="AAB.php">Login</a></li>';
+    .pro {
+      color: #007bff; /* Blue color */
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand logo" href="#">
+        <span class="mano">Mano</span><span class="pro">Pro</span>
+      </a>
 
-}
-?>
-</ul>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+<style></style>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+          <a class="nav-link" href="mailto:manopro.service@gmail.com">Contact</a>
 
-
+          </li>
+          <?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}          if (isset($_SESSION['type']) && $_SESSION['type'] == "employer") {
+              echo '<li class="nav-item"><a class="nav-link" href="profile_for edit employer.php">Profile</a></li>';
+              echo '<li class="nav-item"><a class="nav-link" href="logout.php">Déconnexion</a></li>';
+          } elseif (isset($_SESSION['type']) && $_SESSION['type'] == "user") {
+              echo '<li class="nav-item"><a class="nav-link" href="profile for edit.php">Profile</a></li>';
+              echo '<li class="nav-item"><a class="nav-link" href="logout.php">Déconnexion</a></li>';
+          } else {
+              echo '<li class="nav-item"><a class="nav-link" href="AAB.php">Connexion</a></li>';
+          }
+          ?>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <section class="ads-section">
+
+<section class="ads-section shadow">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
@@ -95,13 +103,13 @@ else{
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="https://img.freepik.com/vecteurs-libre/equipe-construction-travaillant-site_74855-4775.jpg?w=1060&t=st=1685652597~exp=1685653197~hmac=e9da1c86482e4d8c098be3cab858f72c09f41b7c6f0e566f4d3f2998fb80f9a9" class="d-block w-100" alt="Ad 1">
+                <img src="m.png" class="d-block w-100" alt="Ad 1">
               </div>
               <div class="carousel-item">
-                <img src="https://img.freepik.com/vecteurs-libre/conversation-entretien-embauche_74855-7566.jpg" class="d-block w-100" alt="Ad 2">
+                <img src="mm.png" class="d-block w-100" alt="Ad 2">
               </div>
               <div class="carousel-item">
-                <img src="https://img.freepik.com/vecteurs-libre/gestionnaires-demarrage-presentant-analysant-graphique-croissance-ventes-groupe-travailleurs-tas-argent-fusee-diagrammes-barres-fleche-tas-argent_74855-14166.jpg?w=1060&t=st=1685652706~exp=1685653306~hmac=64e17e20424ba516cc9b1951577d5ff3852f21ed2728e96ee954ed676a7ea799" class="d-block w-100" alt="Ad 3">
+                <img src="a.png" class="d-block w-100" alt="Ad 3">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
@@ -120,26 +128,11 @@ else{
     </div>
   </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const navbarToggler = document.querySelector('.navbar-toggler');
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      const navbarSelect = document.querySelector('.navbar-select');
+  
+<section style="    margin-top: 1%;
+    background-color:#F5F6F7;
 
-      navbarToggler.addEventListener('click', function () {
-        navbarCollapse.style.display = navbarCollapse.style.display === 'none' ? 'flex' : 'none';
-      });
-
-      navbarSelect.addEventListener('change', function () {
-        const selectedValue = this.value;
-        if (selectedValue) {
-          window.location.href = selectedValue;
-        }
-      });
-    });
-  </script>
-<section class="filter-bar">
-  <style></style>
+" class="filter-bar">
   <div class="container">
     <div class="row">
     <form method="POST">
@@ -222,21 +215,9 @@ else{
   <button class="blue-button" type="submit">Recherche</button>
 </form>
 </section>
-<style>
 
 
-</style>
 
-</section>
-
-<style>
-  /* Navbar */
-
-
-</style>
-<style>
-   
-</style>
 
 <div class="container">
     <?php
@@ -246,11 +227,13 @@ else{
     
     
     ?>
-<style>
-  
-</style>
 
-<div class="card-container">
+
+<div  style="
+  
+    margin-top: 4%;
+   
+" class="card-container">
 <?php
 include 'config.php';
 
@@ -382,7 +365,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://kit.fontawesome.com/704ff50790.js"
         crossorigin="anonymous">
     </script>
+
+</body>
+<style></style>
+
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5><div class="logo">
+  <span class="mano">Mano</span><span class="pro">Pro</span>
+</div></h5>
+          <p>ManoPro est un startup algerien crée en 2023 consite a facileter la communication entre les technicien les travailleur manuels et les client pour des projet ou des taches speciale. </p>
+        </div>
+     
+        <div class="col-md-4">
+          <h5>Contact</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-geo-alt-fill"></i> Université Badji Mokhtar-Annaba
+              <br>Faculté de Technologie
+              <br> Département d'Informatique
+              <br> BP.12, Annaba 23000
+              Algerie
+            </li>
+            <li><i class="bi bi-envelope-fill"></i> ManoPro.service@gmail.com</li>
+            <li><i class="bi bi-phone-fill"></i> Département d'Informatique</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col text-center">
+          <p>&copy;2023 ManoPro. Tous les droits sont réservés.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/js/bootstrap.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-</body>
 </html>

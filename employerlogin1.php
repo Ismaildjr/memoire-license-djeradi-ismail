@@ -1,5 +1,7 @@
 <?php
+
 include 'config.php';
+$message=NULL;
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -32,21 +34,19 @@ if (isset($_POST['submit'])) {
                 $_SESSION['username'] = $row['full_name'];
                 $_SESSION['pp'] = $row['pp'];
                 $_SESSION['userid1'] = $row['id'];
-                $_SESSION['logged_in1'] = true;
+                $_SESSION['type']="employer";
+                $_SESSION['logged_in1']=true;
                 header('Location: content7 copy.php');
                 exit;
             }
         } else {
-            $errorMsg = 'Email or password incorrect!';
+            $message = '<div class="alert alert-danger" role="alert">Email or password incorrect!</div>';
         }
     } else {
-        $errorMsg = 'Email or password incorrect!';
+        $message = '<div class="alert alert-danger" role="alert">Email or password incorrect!</div>';
     }
 }
 
 // Redirect to the desired page if already logged in
-if (isset($_SESSION['logged_in1']) && $_SESSION['logged_in1']) {
-    header('Location: content7 copy.php');
-    exit;
-}
+
 ?>

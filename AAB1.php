@@ -52,6 +52,8 @@ require 'employerlogin1.php';
             <?php echo $errorMsg; ?>
         </div>
     <?php endif; ?>
+    <?php echo $message; ?>
+
     <label for="email">Adresse e-mail</label>
     <input type="email" id="email" name="email" class="form-control" placeholder="Entrez votre adresse e-mail" required>
 
@@ -60,7 +62,11 @@ require 'employerlogin1.php';
 </div>
 
             <button name="submit" value="submit" type="submit"  class="submit-btn">Se connecter</button>
+            <p class="form-message"><a href="reset_password.php">Mot de passe oublié?</a></p>
+
             <p class="form-message">Vous n'avez pas de compte? <a href="AA1.php">Inscrivez-vous</a></p>
+            <p class="form-message"><a style="color: #007bff;" href="AAB.php">Vous etes un utilisateur?</a></p>
+
         </form>
 
     </div>
